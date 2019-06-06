@@ -1,0 +1,41 @@
+<% include ../partials/header %>
+  <header class="jumbotron">
+    <h1><span class="glyphicon glyphicon-tent align-bottom" aria-hidden="true"></span> Welcome to my NPS footprints!</h1>
+    <p>View National Parks I have been to, and record yours</p>
+    <form class="form-inline" action="/nationalParks" method="GET">
+      <div class="form-group has-feedback">
+        <label for="search"></label>
+        <input class="form-control" type="text" name="search" placeholder="Search nationalParks" autocomplete="off" />
+        <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+      </div>
+    </form>
+    <hr>
+    <a class="pull-right" href="/nationalParks/new">
+      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+      Share New nationalPark
+    </a>
+  </header>
+
+  <div class="row text-center" style="display: flex; flex-wrap: wrap;">
+    <% if (noMatch !== null) {%>
+      <div class="col-md-12">
+        <h4><%= noMatch %></h4>
+      </div>
+    <% } %>
+    <% nationalParks.forEach(nationalPark => {%>
+      <div class="col-md-3 col-sm-6">
+        <div class="thumbnail card">
+          <img class="nationalPark__image" data-src="<%= nationalPark.image.url %>" alt="<%= nationalPark.name %>" />
+          <div class="caption">
+            <h4 class="caption"><%= nationalPark.name %></h4>
+          </div>
+          <p>
+            <a class="btn btn-primary btn-sm btn-b-mg" href="/nationalParks/<%= nationalPark._id %>">
+              More Info
+            </a>
+          </p>
+        </div>
+      </div>
+    <% })%>
+  </div>
+<% include ../partials/footer %>

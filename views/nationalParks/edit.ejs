@@ -1,0 +1,35 @@
+<% include ../partials/header %>
+<div class="row">
+  <h1 style="text-align: center;">Edit <%= nationalPark.name %></h1>
+  <div class="rwd-form">
+    <form action="/nationalParks/<%= nationalPark._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input class="form-control" type="text" name="nationalPark[name]" value="<%= nationalPark.name %>" autocomplete="off" />
+      </div>
+      <div class="form-group">
+        <label for="image">Update Image</label>
+        <input id="image" type="file" name="image" accept="image/*" autocomplete="off" />
+      </div>
+<!--
+      <div class="form-group">
+        <label for="price">Price</label>
+        <input class="form-control" type="number" name="nationalPark[price]" value="<%= nationalPark.price %>" min="1" step="1" autocomplete="off" />
+      </div>
+-->
+      <div class="form-group">
+        <label for="location">Location</label>
+        <input class="form-control" type="text" name="nationalPark[location]" id="location" value="<%= nationalPark.location %>" autocomplete="off" />
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <input class="form-control" type="text" name="nationalPark[description]" value="<%= nationalPark.description %>" autocomplete="off" />
+      </div>
+      <div class="form-group">
+        <button class="btn btn-md btn-primary btn-block">Update</button>
+      </div>
+    </form>
+    <a href="/nationalParks/<%= nationalPark._id %>">Back</a>
+  </div>
+</div>
+<% include ../partials/footer %>
