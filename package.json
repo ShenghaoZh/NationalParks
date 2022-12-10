@@ -15,7 +15,7 @@
     "cloudinary": "^1.9.1",
     "connect-flash": "^0.1.1",
     "ejs": "^2.5.7",
-    "express": "^4.16.2",
+    "express": "^4.17.3",
     "express-session": "^1.15.6",
     "helmet": "^3.9.0",
     "method-override": "^2.3.10",
